@@ -4,6 +4,8 @@ import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ControlPanel extends JPanel {
 
@@ -18,9 +20,26 @@ public class ControlPanel extends JPanel {
         this.add(greenButton);
         this.add(blueButton);
 
-        redButton.addActionListener(new Controller(jPanel, Color.RED));
-        greenButton.addActionListener(new Controller(jPanel, Color.GREEN));
-        blueButton.addActionListener(new Controller(jPanel, Color.BLUE));
+        redButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jPanel.setBackground(Color.RED);
+            }
+        });
+
+        greenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jPanel.setBackground(Color.GREEN);
+            }
+        });
+
+        blueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jPanel.setBackground(Color.BLUE);
+            }
+        });
     }
 
 }
